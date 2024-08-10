@@ -1,49 +1,68 @@
+const weapon = document.querySelector('.weapon')
+const scoreText = document.querySelector('.score-text')
+const playerGuss = document.querySelector('.player-guss')
+const computerGuss = document.querySelector('.computer-guss')
+
+
+let winnerText = ''
+let scoreTextText = ''
+let playerIcon = ''
+let computerIcon = ''
+
 const rockArray = ['Rock', 'Paper', 'Scissors']
+let humanChoice = ''
 let computerScore = 0
 let humanScore = 0
 
 
 const getComputerChoice = () => {
-    return rockArray[Math.floor(Math.random() * 3)].toLowerCase()
+    return rockArray[Math.floor(Math.random() * 3)].toLowerCase().slice()
 }
 
-const getHumanChoice = () => {
-    const humanChoice =  prompt().toLocaleLowerCase()
-    return humanChoice
-}
+
+document.addEventListener('click', e => {
+    const retrieve = e.target.dataset.exist
+    if(retrieve){
+        humanChoice = retrieve
+        playRound(getComputerChoice(), humanChoice.toLowerCase().slice())
+        weapon.textContent = winnerText
+        scoreText.textContent = scoreTextText
+        playerGuss.innerHTML = `<img src="assets/${humanChoice}.svg" alt="${humanChoice}">`
+        computerGuss.innerHTML = `<img src="assets/${getComputerChoice()}.svg" alt="${getComputerChoice()}">`
+    }
+})
 
 const playRound = (computerChoice, humanChoice) => {
     if(computerChoice === humanChoice){
         humanScore++
         computerScore++
-        console.log(`tight: ${computerChoice} tight  ${humanChoice}\n Computer: ${computerScore}, Human: ${humanScore}` )
+        winnerText = "It's a tie!"
+        scoreTextText = `${humanChoice} ties ${computerChoice}!`
     }else if(computerChoice == 'rock' && humanChoice == 'paper'){
         humanScore++
-        console.log(`Human: ${humanChoice} wins ${computerChoice} \nHuman: ${humanScore}`)
+        winnerText = "You won!"
+        scoreTextText = `${humanChoice} beates ${computerChoice}!`
     }else if(computerChoice == 'rock' && humanChoice == 'scissors'){
         computerScore++
-        console.log(`Computer: ${computerChoice} wins ${humanChoice} \nComputer: ${computerScore}`)
+        winnerText = "You lose!"
+        scoreTextText = `${humanChoice} beaten by ${computerChoice}!`
     }else if(computerChoice == 'paper' && humanChoice == 'rock'){
         computerScore++
-        console.log(`Computer: ${computerChoice} wins ${humanChoice} \nComputer: ${computerScore}`)
+        winnerText = "You lose!"
+        scoreTextText = `${humanChoice} beaten by ${computerChoice}!`
     }else if(computerChoice == 'paper' && humanChoice == 'scissors'){
         humanScore++
-        console.log(`Human: ${humanChoice} wins ${computerChoice} \nHuman: ${humanScore}`)
+        winnerText = "You won!"
+        scoreTextText = `${humanChoice} beates ${computerChoice}!`
     }else if(computerChoice == 'scissors' && humanChoice == 'rock'){
         humanScore++
-        console.log(`Human: ${humanChoice} wins ${computerChoice} \nHuman: ${humanScore}`)
+        winnerText = "You won!"
+        scoreTextText = `${humanChoice} beates ${computerChoice}!`
     }else if(computerChoice == 'scissors' && humanChoice == 'paper'){
         computerScore++
-        console.log(`Computer: ${computerChoice} wins ${humanChoice} \nComputer: ${computerScore}`)
-    }else {
-        console.log('Enter Rock, Paper, or Scissors')
+        winnerText = "You lose!"
+        scoreTextText = `${humanChoice} beaten by ${computerChoice}!`
     }
 }
 
-const playGame = () => {
-    for(let i = 0; i < 5; i++){
-        playRound(getComputerChoice(), getHumanChoice())
-    }
-}
 
-playGame()

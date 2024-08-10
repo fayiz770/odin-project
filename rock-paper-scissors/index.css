@@ -1,0 +1,74 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --font-family1: 'Kalam', sans-serif;
+    --font-family2: 'Poppins', sans-serif;
+    --title-color: #FAC650;
+    --bg-header: #111720;
+    --bg-main: #222831;
+    --bg-icons: #393E46;
+}
+
+body {
+    user-select: none;
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    background: var(--bg-main);
+}
+
+.header {
+    font-family: var(--font-family1);
+    background: var(--bg-header);
+    padding: 1.5rem 0;
+    color: var(--title-color);
+    text-transform: uppercase;
+    font-size: 2em;
+    color: white;
+}
+
+.article {
+    padding-top: 3em;
+    font-family: var(--font-family2);
+    display: grid;
+    gap: 1em;
+    color: white;
+}
+
+.reveal,
+.text-for-player-and-computer 
+ {
+    display: flex;
+    justify-content: center;
+    gap: 6rem;
+    font-size: 6em;
+}
+
+.reveal > div {
+    width: 100px;
+    height: 100px;
+}
+
+.text-for-player-and-computer {
+    font-size: 3em;
+}
+
+.icons > img {
+    width: 200px;
+    height: 200px;
+    padding: 1em;
+    background: var(--bg-icons);
+    align-items: center;
+    justify-content: center;
+    border-radius: 1em;
+}
+
+.icons {
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+}

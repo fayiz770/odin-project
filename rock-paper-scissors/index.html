@@ -3,9 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <title>Rock-Paper-Scissors</title>
 </head>
 <body>
+    <main class="main">
+        <header class="header">
+            <h1 class="title">Rock Paper Scissors</h1>
+        </header>
+        <article class="article">
+            <h2 class="weapon">Choose your weapon</h2>
+            <h3 class="score-text">First to score 5 points wins the game</h3>
+            <div class="reveal">
+                <div class="player-guss">?</div>
+                <div class="computer-guss">?</div>
+            </div>
+            <div class="text-for-player-and-computer">
+                <div class="player-text">Player: <span class="player-score">0</span></div>
+                <div class="computer-text">Computer: <span class="computer-score">0</span></div>
+            </div>
+            <div class="icons">
+                <img src="assets/paper.svg" alt="paper" class="paper" data-exist="paper">
+                <img src="assets/rock.svg" alt="rock" class="rock" data-exist="rock">
+                <img src="assets/scissors.svg" alt="scissors" class="scissors" data-exist="scissors">
+            </div>
+        </article>
+    </main>
     <script src="index.js"></script>
 </body>
 </html>
