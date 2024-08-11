@@ -1,7 +1,12 @@
+const state = document.querySelector('.state')
 const weapon = document.querySelector('.weapon')
+const button = document.querySelector('.button')
+const modalEl = document.querySelector('.modal')
 const scoreText = document.querySelector('.score-text')
 const playerGuss = document.querySelector('.player-guss')
 const computerGuss = document.querySelector('.computer-guss')
+const playerScoreEl = document.querySelector('.player-score')
+const computerScoreEl = document.querySelector('.computer-score')
 
 
 let winnerText = ''
@@ -22,47 +27,70 @@ const getComputerChoice = () => {
 
 document.addEventListener('click', e => {
     const retrieve = e.target.dataset.exist
+    const computerChoice = getComputerChoice()
     if(retrieve){
         humanChoice = retrieve
-        playRound(getComputerChoice(), humanChoice.toLowerCase().slice())
-        weapon.textContent = winnerText
-        scoreText.textContent = scoreTextText
-        playerGuss.innerHTML = `<img src="assets/${humanChoice}.svg" alt="${humanChoice}">`
-        computerGuss.innerHTML = `<img src="assets/${getComputerChoice()}.svg" alt="${getComputerChoice()}">`
+        playRound(computerChoice, humanChoice.toLowerCase())
+        playerIcon = `<img src="assets/${humanChoice}.svg" alt="${humanChoice}">`
+        computerIcon = `<img src="assets/${computerChoice}.svg" alt="${computerChoice}">`
+        render(playerIcon, computerIcon)
+        if(computerScore === 5 || humanScore === 5){
+            modalEl.style.display = 'flex'
+            gameResult(computerScore, humanScore)
+        }
     }
+})
+
+const render = (playerIcon, computerIcon) => {
+    playerGuss.innerHTML = playerIcon
+    computerGuss.innerHTML = computerIcon
+    weapon.textContent = winnerText
+    scoreText.textContent = scoreTextText
+    playerScoreEl.textContent = humanScore
+    computerScoreEl.textContent = computerScore
+    
+}
+button.addEventListener('click', e => {
+    e.preventDefault()
+    modalEl.style.display = 'none'
+    humanScore = 0
+    computerScore = 0
+    winnerText = 'Choose your weapon' 
+    scoreTextText = 'First to score 5 points wins the game'
+    playerIcon = '?'
+    computerIcon = '?'
+    render(playerIcon, computerIcon)
 })
 
 const playRound = (computerChoice, humanChoice) => {
     if(computerChoice === humanChoice){
-        humanScore++
-        computerScore++
         winnerText = "It's a tie!"
         scoreTextText = `${humanChoice} ties ${computerChoice}!`
-    }else if(computerChoice == 'rock' && humanChoice == 'paper'){
+    }else if(
+        (humanChoice == 'rock' && computerChoice == 'scissors') ||
+        (humanChoice == 'paper' && computerChoice == 'rock') ||
+        (humanChoice == 'scissors' && computerChoice == 'paper')
+    ){
         humanScore++
         winnerText = "You won!"
         scoreTextText = `${humanChoice} beates ${computerChoice}!`
-    }else if(computerChoice == 'rock' && humanChoice == 'scissors'){
+    }else if(
+        (computerChoice == 'rock' && humanChoice == 'scissors') ||
+        (computerChoice == 'paper' && humanChoice == 'rock') ||
+        (computerChoice == 'scissors' && humanChoice == 'paper')
+    ){
         computerScore++
-        winnerText = "You lose!"
-        scoreTextText = `${humanChoice} beaten by ${computerChoice}!`
-    }else if(computerChoice == 'paper' && humanChoice == 'rock'){
-        computerScore++
-        winnerText = "You lose!"
-        scoreTextText = `${humanChoice} beaten by ${computerChoice}!`
-    }else if(computerChoice == 'paper' && humanChoice == 'scissors'){
-        humanScore++
-        winnerText = "You won!"
-        scoreTextText = `${humanChoice} beates ${computerChoice}!`
-    }else if(computerChoice == 'scissors' && humanChoice == 'rock'){
-        humanScore++
-        winnerText = "You won!"
-        scoreTextText = `${humanChoice} beates ${computerChoice}!`
-    }else if(computerChoice == 'scissors' && humanChoice == 'paper'){
-        computerScore++
-        winnerText = "You lose!"
+        winnerText = "You lost!"
         scoreTextText = `${humanChoice} beaten by ${computerChoice}!`
     }
 }
 
+const gameResult = (computer, human) => {
+
+    if(computer > human){
+        state.textContent = 'You lost...'
+    }else {
+        state.textContent = 'You won...'
+    }
+}
 

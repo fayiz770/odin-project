@@ -11,14 +11,19 @@
     --bg-header: #111720;
     --bg-main: #222831;
     --bg-icons: #393E46;
+    --bg-tranparent: hsla(0, 100%, 1%, 0.7);
 }
 
 body {
+    position: relative;
     user-select: none;
     width: 100vw;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
     text-align: center;
     background: var(--bg-main);
+    text-align: center;
 }
 
 .header {
@@ -71,4 +76,37 @@ body {
     display: flex;
     justify-content: center;
     gap: 2em;
+}
+
+.modal {
+    position: absolute;
+    background: var(--bg-tranparent);
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-main {
+    color: white;
+    padding: 6em;
+    background: var(--bg-main);
+    width: fit-content;
+    height: fit-content;
+    border-radius: 1em;
+    display: grid;
+    gap: 2em;
+}
+
+.modal-main > button {
+    padding: 1em 2em;
+    border-radius: 1em;
+    border: none;
+    color: white;
+    background: var(--bg-icons);
+    font-weight: bold;
+    font-size: 1rem;
+    outline: none;
+    cursor: pointer;
 }
