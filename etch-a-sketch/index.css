@@ -1,0 +1,100 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-body: #EDEDED;
+    --text: #333333;
+    --bg-container: #FEFEFE;
+}
+
+body {
+    padding: 5em 30em 0 20em;
+    color: var(--text);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main {
+    width: 100%;
+    height: 70%;
+    display: flex;
+    gap: 3em;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.etch {
+    font-size: 5em;
+}
+
+.graphs {
+    width: 100%;
+    height: 100%;
+    background: var(--text);
+}
+
+.settings {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    align-items: center;
+}
+
+.color-picker > input {
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    padding: 0 !important;
+}
+
+.color-picker > input:active {
+    transition: transform 0.05s ease-in-out;
+    transform: scale(1);
+}
+
+.color-picker {
+    border-radius: 50%;
+}
+
+input[type='color']::-webkit-color-swatch {
+    border: none;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.button {
+    border: 1px solid var(--text);
+    width: 100%;
+    padding: 0.5em;
+    text-align: center;
+    font-weight: bold;
+    border-radius: .3em;
+}
+
+.button,
+input[type='color'] {
+  transition: transform 0.1s ease-in-out;
+}
+
+.button:hover {
+    transform: scale(1.05);
+}
+
+.color-mode {
+    color: white;
+    background: #333333;
+}
+
+.scale > input {
+    padding: ;
+    color: black;
+    font-weight: bold;
+}
