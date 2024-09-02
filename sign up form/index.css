@@ -79,6 +79,7 @@ input {
     margin-bottom: 1em;
 }
 
+
 button {
     padding: 0.5em;
     border-radius: .2em;
@@ -87,6 +88,7 @@ button {
     font-weight: bold;
     background: #596D48;
     color: white;
+    margin-top: 1em;
 }
 
 a {
@@ -94,6 +96,19 @@ a {
     cursor: pointer;
 }
 
+.password:invalid {
+    border: 1px solid red;
+}
+
+.confirm-password:invalid {
+    border: 1px solid red;
+}
+
+.match {
+    display: none;
+    margin-top: -1em;
+    color: red;
+}
 
 @media (min-width: 768px){
     body {
