@@ -3,9 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
     <title>Sign up form</title>
 </head>
 <body>
-    
+    <header class="header">
+        <img src="assets/images/hero-mobile.jpg" alt="hero-mobile">
+        <div class="floated">
+            <img src="assets/icons/odin-lined.png" alt="odin-lined" class="odin-lined">
+            <h1 class="odin-text">Odin</h1>
+        </div>
+    </header>
+    <main class="main">
+        <div class="info">
+            <h1>
+                This is the most popular website in the world in context of making new websites
+            </h1>
+        </div>
+        <div class="form">
+            <h2>Sign up for free</h2>
+            <form action="#" class="form-into">
+                <label for="first-name">fist name</label>
+                <input type="text" id="first-name" class="first-name" name="first-name" placeholder="Enter your first name">
+
+                <label for="last-name">last name</label>
+                <input type="text" id="last-name" class="last-name" name="last-name" placeholder="Enter your last name">
+
+                <label for="email">email</label>
+                <input type="email" id="email" class="email" name="email" placeholder="Enter your email">
+
+                <label for="mobile">phone number</label>
+                <input type="text" id="mobile" class="mobile" name="mobile" placeholder="Enter your phone number">
+
+                <label for="password">password</label>
+                <input type="password" name="password" id="password" class="password" placeholder="Enter your password">
+
+                <label for="confirm-password">confirm password</label>
+                <input type="password" name="confirm-password" id="confirm-password" placeholder="Confirm your password">
+
+                <button type="submit">Create Account</button>
+            </form>
+            <h3>Already have an account? <a href="#">Log in</a></h3>
+        </div>
+
+        </form>
+    </main>
+    <script src="index.js"></script>
 </body>
 </html>

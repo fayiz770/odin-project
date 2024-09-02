@@ -1,0 +1,91 @@
+@font-face {
+    font-family: 'Norse Bold';
+    src: url('assets/font/Norse-Bold.otf');
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --font-family: 'Norse Bold', sans-serif;
+}
+
+body {
+    height: 100vh;
+}
+.header {
+    position: relative;
+    width: 100%;
+    height: 200px;
+}
+
+.header  > img {
+    width: 100%;
+    height: 100%;
+}
+
+.odin-lined {
+    width: 30px;
+    height: 40px;
+}
+
+.odin-text {
+    height: 100%;
+    color: white;
+    font-family: var(--font-family);
+}
+
+.floated {
+    position: absolute;
+    top: 1em;
+    left: 1em;
+    display: flex;
+    align-items: center;
+}
+
+/* Main  */
+
+.main {
+    display: grid;
+    gap: 2em;
+    text-align: center;
+    padding: 2em 1em;
+}
+
+.form {
+    display: grid;
+    gap: 1em;
+}
+
+.form-into {
+    font-weight: bold;
+    padding: 0 2em;
+    display: grid;
+    gap: 0.2em;
+    text-align: left;
+}
+
+input {
+    border: 1px solid gray;
+    padding: 0.5em;
+    border-radius: 0.5em;
+}
+
+button {
+    margin-top: 1em;
+    padding: 0.5em;
+    border-radius: .5em;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    background: #596D48;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
