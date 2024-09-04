@@ -5,8 +5,6 @@
 
 body {
     color: white;
-    font-weight: bold;
-    font-size: 2rem;
 }
 .container {
     padding: 1rem;
@@ -21,7 +19,7 @@ body {
 }
 
 .container > * {
-    padding: 5rem;
+    padding: 1rem;
     display: grid;
     place-items: center;
 }
@@ -30,23 +28,51 @@ body {
 }
 
 .header {
+    display: flex;
+    justify-content: space-between;
     background: #006157;
     grid-area: head;
+}
+
+.links {
+    display: flex;
+    gap: 2em;
 }
 
 .aside {
     background: #005B94;
     grid-area: asid;
+    padding: 2em 4em;
+}
+
+.aside > * {
+    background: white;
+    color: black;
+    padding: 3rem;
+    width: 100%;
 }
 
 .nav {
     background: #642CDE;
     grid-area: navv;
+    display: flex;
+    justify-content: space-between;
 }
 
 .article {
     background: #7E1DC3;
     grid-area: arti;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(150px, 1fr));
+    gap: 1em;
+}
+
+.article > * {
+    background: white;
+    color: black;
+    text-align: center;
+    padding: 1em;
+    border-radius: 5px;
 }
 
 .footer {
